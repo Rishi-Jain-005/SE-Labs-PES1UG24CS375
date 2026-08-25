@@ -1,0 +1,107 @@
+<mxfile host="app.diagrams.net" agent="claude" version="24.0.0">
+  <diagram name="Use-Case Diagram" id="hostel-uc-diagram">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- System boundary -->
+        <mxCell id="boundary" value="Hostel Maintenance &amp; Issue Ticketing System" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontColor=#1F3864;strokeColor=#1F3864;fillColor=none;fontSize=14;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="330" y="60" width="680" height="780" as="geometry" />
+        </mxCell>
+
+        <!-- Actors -->
+        <mxCell id="actorResident" value="Hostel Resident" style="shape=umlActor;whiteSpace=wrap;html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="70" y="200" width="50" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="actorWarden" value="Maintenance Warden" style="shape=umlActor;whiteSpace=wrap;html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="150" width="50" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="actorStaff" value="Maintenance Staff" style="shape=umlActor;whiteSpace=wrap;html=1;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="510" width="50" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Use cases -->
+        <mxCell id="uc1" value="Log Maintenance Ticket" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DDEBF7;strokeColor=#1F3864;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="92" width="300" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="uc2" value="Auto-Tag Room / Block Location" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DDEBF7;strokeColor=#1F3864;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="232" width="300" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="uc3" value="Assign Ticket to Staff" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DDEBF7;strokeColor=#1F3864;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="710" y="182" width="300" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="uc4" value="Update Ticket Status" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DDEBF7;strokeColor=#1F3864;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="710" y="342" width="300" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="uc5" value="Send SLA Escalation Alert" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DDEBF7;strokeColor=#1F3864;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="710" y="502" width="300" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="uc6" value="Confirm Ticket Closure (Sign-off)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DDEBF7;strokeColor=#1F3864;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="482" width="300" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="uc7" value="View Ticket History" style="ellipse;whiteSpace=wrap;html=1;fillColor=#DDEBF7;strokeColor=#1F3864;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="642" width="300" height="115" as="geometry" />
+        </mxCell>
+
+        <!-- Associations (actor - use case) -->
+        <mxCell id="a1" style="endArrow=none;html=1;strokeColor=#555555;strokeWidth=1.2;" edge="1" parent="1" source="actorResident" target="uc1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" style="endArrow=none;html=1;strokeColor=#555555;strokeWidth=1.2;" edge="1" parent="1" source="actorResident" target="uc6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" style="endArrow=none;html=1;strokeColor=#555555;strokeWidth=1.2;" edge="1" parent="1" source="actorResident" target="uc7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" style="endArrow=none;html=1;strokeColor=#555555;strokeWidth=1.2;" edge="1" parent="1" source="actorWarden" target="uc3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" style="endArrow=none;html=1;strokeColor=#555555;strokeWidth=1.2;" edge="1" parent="1" source="actorWarden" target="uc4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a6" style="endArrow=none;html=1;strokeColor=#555555;strokeWidth=1.2;" edge="1" parent="1" source="actorWarden" target="uc7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a7" style="endArrow=none;html=1;strokeColor=#555555;strokeWidth=1.2;" edge="1" parent="1" source="actorStaff" target="uc4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a8" style="endArrow=none;html=1;strokeColor=#555555;strokeWidth=1.2;" edge="1" parent="1" source="actorStaff" target="uc5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Include / Extend dependencies -->
+        <mxCell id="inc1" value="&#171;include&#187;" style="endArrow=block;dashed=1;html=1;strokeColor=#B00020;fontColor=#B00020;fontStyle=2;fontSize=11;" edge="1" parent="1" source="uc1" target="uc2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ext1" value="&#171;extend&#187;" style="endArrow=block;dashed=1;html=1;strokeColor=#B00020;fontColor=#B00020;fontStyle=2;fontSize=11;" edge="1" parent="1" source="uc5" target="uc4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legendBox" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#999999;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="30" y="770" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="legendLine1" style="endArrow=none;html=1;strokeColor=#555555;strokeWidth=1.2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="45" y="790" as="sourcePoint" />
+            <mxPoint x="85" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legendText1" value="Association" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="95" y="778" width="150" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="legendLine2" style="endArrow=block;dashed=1;html=1;strokeColor=#B00020;strokeWidth=1.2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="45" y="818" as="sourcePoint" />
+            <mxPoint x="85" y="818" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legendText2" value="&#171;include&#187; / &#171;extend&#187;" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="95" y="806" width="180" height="24" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
