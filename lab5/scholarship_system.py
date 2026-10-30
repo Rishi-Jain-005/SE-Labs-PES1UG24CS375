@@ -23,6 +23,7 @@ _BINARY_OPS = {
 }
 _UNARY_OPS = {ast.UAdd: operator.pos, ast.USub: operator.neg}
 
+
 def _eval_node(node, variables):
     """Evaluate an AST node, allowing only numbers, known names and + - * /."""
     if isinstance(node, ast.Expression):
@@ -42,6 +43,7 @@ def _eval_node(node, variables):
         return _UNARY_OPS[type(node.op)](_eval_node(node.operand, variables))
     raise ValueError("formula may only use gpa, credits, numbers and + - * /")
 
+
 def calculate_merit_score(gpa, credit_points, formula=DEFAULT_FORMULA):
     """Return the merit score for the given formula without using eval()."""
     try:
@@ -52,12 +54,14 @@ def calculate_merit_score(gpa, credit_points, formula=DEFAULT_FORMULA):
     except ZeroDivisionError as err:
         raise ValueError("formula divides by zero") from err
 
+
 def _number(scores, key, default=None):
     """Fetch a numeric field from the scores dict or raise ValueError."""
     value = scores.get(key, default)
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise ValueError(f"{key} is missing or not a number")
     return value
+
 
 def validate_scores(test_scores):
     """Return (gpa, credit_points, income) after range checks."""
@@ -71,6 +75,7 @@ def validate_scores(test_scores):
     if income < 0:
         raise ValueError("income cannot be negative")
     return gpa, credit_points, income
+
 
 def evaluate_applicant(student_id, test_scores, logs=None,
                        formula=DEFAULT_FORMULA):
@@ -90,10 +95,12 @@ def evaluate_applicant(student_id, test_scores, logs=None,
     logs.append(f"{student_id} scored {score}")
     return eligible
 
+
 def persist_results(file=RESULTS_FILE):
     """Write the results dictionary to a JSON file."""
     with open(file, "w", encoding="utf-8") as handle:
         json.dump(results, handle)
+
 
 def load_results(file=RESULTS_FILE):
     """Load results from a JSON file; keep current ones if it can't be read."""
@@ -108,12 +115,14 @@ def load_results(file=RESULTS_FILE):
     results.clear()
     results.update(loaded)
 
+
 def print_shortlist():
     """Print every eligible applicant with their score."""
     print("Shortlisted applicants:")
     for student_id, record in results.items():
         if record["eligible"]:
             print(" ", student_id, "score =", record["score"])
+
 
 def main():
     """Run the sample applicants and let the user change the formula."""
@@ -143,6 +152,7 @@ def main():
     print("Evaluation log:")
     for entry in logs:
         print(" ", entry)
+
 
 if __name__ == "__main__":
     main()
